@@ -19,4 +19,5 @@ and computes the prediction error at the held out point.  These errors are
 collated into a vector indicating the Leave-One-Out error at each design
 point.
 }
+\keyword{internal}
 

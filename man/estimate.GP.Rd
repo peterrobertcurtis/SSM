@@ -32,4 +32,5 @@ large.
 The scaling parameter \code{sigma} is found analytically once \code{r}
 has been determined.
 }
+\keyword{internal}
 

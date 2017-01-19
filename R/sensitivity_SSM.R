@@ -26,7 +26,7 @@
 #' interaction indices are computed for all order interactions and stored in
 #' \code{int_sobol} with identifying labels in \code{int_factors}.
 #' @param ssm An SSM object.
-#'
+#' @keywords internal
 #' @return An SSM object.
 update.sensitivity <- function (ssm){
 
@@ -74,6 +74,7 @@ update.sensitivity <- function (ssm){
 #'   monomial basis.
 #' @return A logical vector.  Each term corresponds with the associated row of
 #' \code{basis}.
+#' @keywords internal
 identify.main.effect.terms <- function(i, basis)
   apply(basis, 1, sum) == basis[ , i]
 
@@ -87,6 +88,7 @@ identify.main.effect.terms <- function(i, basis)
 #'
 #' @return An SSM object.  This is the \code{ssm} input with the
 #' relevant slots updated.
+#' @keywords internal
 compute.main.effects <- function(ssm){
   ssm@main_ind      <- sapply(1:ssm@dimension, identify.main.effect.terms,
                               basis = ssm@basis)
@@ -103,6 +105,7 @@ compute.main.effects <- function(ssm){
 #' @param i A number indicating the total effect of interest.
 #' @param basis A matrix.  A matrix where each row is an exponent vector of a
 #'   monomial basis.
+#' @keywords internal
 #' @return A logical vector.  Each term corresponds with the associated row of
 #' \code{basis}.
 identify.total.effect.terms <- function(i, basis)
@@ -115,7 +118,7 @@ identify.total.effect.terms <- function(i, basis)
 #' variances. Called by \code{\link{update.sensitivity}}.
 #'
 #' @param ssm An SSM object.
-#'
+#' @keywords internal
 #' @return An SSM object.  This is the \code{ssm} input with the
 #' relevant slots updated.
 compute.total.effects <- function(ssm){
@@ -138,7 +141,7 @@ compute.total.effects <- function(ssm){
 #' \code{\link{update.sensitivity}}.
 #'
 #' @param ssm An SSM object.
-#'
+#' @keywords internal
 #' @return An SSM object.  This is the \code{ssm} input with the
 #' relevant slots updated.
 compute.interactions <- function(ssm){
@@ -184,7 +187,7 @@ compute.interactions <- function(ssm){
 #'   \emph{e.g.} The input \eqn{(1, 3, 4)} indicates that the interaction
 #'   between the first, third and fourth factors is the one of interest.
 #' @param ssm An SSM object.
-#'
+#' @keywords internal
 #' @return A number.  The Total interaction index of the requested interaction.
 compute.specific.total.interaction <- function(factors, ssm){
   ind <- apply(ssm@basis[ , factors] > 0, 1, prod)
@@ -202,7 +205,7 @@ compute.specific.total.interaction <- function(factors, ssm){
 #'   that the interaction between the first, third and fourth factors is the one
 #'   of interest.
 #' @param ssm An SSM object.
-#'
+#' @keywords internal
 #' @return A number. The Sobol index of the requested interaction.
 compute.specific.interaction <- function (factors, ssm){
   ind <- apply(ssm@basis[ , factors] > 0 ,1, prod)

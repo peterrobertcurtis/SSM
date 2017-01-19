@@ -20,4 +20,5 @@ This function constructs the K matrix for a given multivariate basis assuming
 the basis is a Legendre polynomial basis and the smoothing criterion is the
 Frobenius norm of the Hessian integrated over \eqn{[-1, 1]^d}.
 }
+\keyword{internal}
 

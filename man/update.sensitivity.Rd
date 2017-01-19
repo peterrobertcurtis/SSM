@@ -35,4 +35,5 @@ indices are placed in \code{main_sobol} and the Total indices in
 interaction indices are computed for all order interactions and stored in
 \code{int_sobol} with identifying labels in \code{int_factors}.
 }
+\keyword{internal}
 

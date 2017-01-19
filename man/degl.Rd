@@ -27,4 +27,5 @@ generated.  Any generated vector is checked to make sure that it's non-zero
 entries do not match a vector provided in \code{exclude} before being added
 to the output matrix.
 }
+\keyword{internal}
 

@@ -24,4 +24,5 @@ of the SSM to measure distances.}
 \description{
 This is a legacy function and is not used.
 }
+\keyword{internal}
 

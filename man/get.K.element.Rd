@@ -20,4 +20,5 @@ The inner product of the \eqn{n, m}-th basis elements as defined for
 \description{
 Called by \code{\link{construct.K}} to compute entries of the K matrix.
 }
+\keyword{internal}
 

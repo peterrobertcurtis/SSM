@@ -29,4 +29,5 @@ returns the design model matrix corresponding to this polynomial basis and
 the design given by \code{design}.  Note that if \code{P} is the
 appropriately sized identity matrix then the model basis a monomial one.
 }
+\keyword{internal}
 

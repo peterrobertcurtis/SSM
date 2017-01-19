@@ -283,7 +283,7 @@ fit.ssm <- function(design, response, ssm, basis, basis_size, K, P,
 #' @param design An \eqn{n x d} matrix where each row is a design point.
 #' @param P An \eqn{N x N} change of basis matrix from a monomial basis to
 #'  a polynomial basis.  Note that each column corresponds to a polynomial term.
-#'
+#' @keywords internal
 #' @return The \eqn{n x N} design model matrix.
 construct.dmm <- function(basis, design, P){
   X<-matrix(0, ncol = nrow(basis), nrow = nrow(design))
@@ -325,7 +325,7 @@ construct.dmm <- function(basis, design, P){
 #'   generation of undesired exponent vectors.  \emph{e.g.} If 1 is a vector in
 #'   the list then any generated vector which is non-zero in the first column
 #'   and zero everywhere else will be thrown away.
-#'
+#' @keywords internal
 #' @return A matrix of exponent vectors
 comb <- function(d, deg, N = choose(d + deg - 1, deg), vec, start = TRUE,
                  parent, exclude = list()){
@@ -420,6 +420,7 @@ comb <- function(d, deg, N = choose(d + deg - 1, deg), vec, start = TRUE,
 #' @param exclude (optional) A list of integer vectors.  If this argument is
 #'   provided, the generated matrix will not contain any rows which are only
 #'   non-zero in the columns specified by any of the vectors in the list.
+#' @keywords internal
 degl <- function(d,N, exclude = list()){
   ## degl(d, N) generates a matrix of N hierarchical exponent vectors in d variables
   ## the optional argument exclude allows you to include a list of terms to exclude,
@@ -455,6 +456,7 @@ degl <- function(d,N, exclude = list()){
 #' @return A matrix where each entry is \eqn{<f, g>} with \deqn{<f, g> = \int_X
 #'  \sum_{i,j}\frac{d^2f}{dx_idx_j}\frac{d^2g}{dx_idx_j} dx,} with \eqn{f, g}
 #'  being the Legendre polynomials described by the appropriate exponent vectors.
+#' @keywords internal
 construct.K<-function(basis) {
   ## Input - basis
   ## Output - the K matrix for the respective basis
@@ -475,7 +477,7 @@ construct.K<-function(basis) {
 #' Frobenius norm of the Hessian integrated over \eqn{[-1, 1]}.
 #' @param basis A matrix.  Rows of the matrix are taken as the degree of the
 #'   Legendre polynomial.
-#'
+#' @keywords internal
 #' @return A matrix where each entry is \eqn{<f, g>} with \deqn{<f, g> = \int_X
 #'  \frac{d^2f}{dx^2}\frac{d^2g}{dx^2} dx,} with \eqn{f, g} being the
 #'  Legendre polynomials described by the appropriate exponent vectors.
@@ -500,7 +502,7 @@ construct.K.1d <- function (basis) {
 #' @param n A number. Identifies the first basis element in the inner product.
 #' @param m A number. Identifies the second basis element in the inner product.
 #' @param basis A matrix. Rows are taken as exponent vectors.
-#'
+#' @keywords internal
 #' @return The inner product of the \eqn{n, m}-th basis elements as defined for
 #'   \code{\link{construct.K}}.
 get.K.element<-function(n, m, basis){
@@ -577,7 +579,7 @@ get.K.element<-function(n, m, basis){
 #'
 #' @param basis A matrix. Rows are taken as the degree of the associated
 #'   monomial.
-#'
+#' @keywords internal
 #' @return A matrix which functions as a change of basis from monomials to
 #'   Legendre.
 construct.P.1d <- function(basis){
@@ -602,7 +604,7 @@ construct.P.1d <- function(basis){
 #'
 #' @param basis A matrix. Rows are taken as the degree of the associated
 #'   monomial.
-#'
+#' @keywords internal
 #' @return A matrix which functions as a change of basis from monomials to
 #'   Legendre.
 construct.P <- function(basis){
@@ -636,7 +638,7 @@ construct.P <- function(basis){
 #'   matrix and if the model basis is too large there can be numerical issues.
 #'   This argument is passed on to \code{\link{solve}} so models can be fit
 #'   despite these issues.
-#'
+#' @keywords internal
 #' @return A vector of parameters of length \eqn{N} if the model is fit
 #'  successfully. \code{NA} is returned should \code{\link{solve}} not invert
 #'  the required matrix.
@@ -658,7 +660,7 @@ find.theta <- function(response, K, design_model, tol = .Machine$double.eps){
 #'
 #' @param ssm An SSM object that has valid entries for the slots
 #'   \code{response}, \code{K}, and \code{design_model_matrix}.
-#'
+#' @keywords internal
 #' @return A vector of Leave-One_Out errors.
 compute.residuals <- function (ssm){
   # this computes the LOO error at each design point found by fitting the SSM

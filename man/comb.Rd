@@ -43,4 +43,5 @@ model.  It constructs the first \code{N} exponent vectors of degree \code{d},
 excluding those which are non-zero only in the columns specified by vectors
 listed in \code{exclude}.  It operates recursively.
 }
+\keyword{internal}
 

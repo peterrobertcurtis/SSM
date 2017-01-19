@@ -8,7 +8,7 @@
 #' \code{"exp"} uses a squared exponential.
 #' @param ssm An SSM object.
 #' @param r A number. The length parameter used by the correlation function.
-#'
+#' @keywords internal
 #' @return The unscaled covariance matrix.
 compute.covariance <- function(ssm, r){
   # This function computes the covariance matrix for the data (but does not
@@ -36,6 +36,7 @@ compute.covariance <- function(ssm, r){
 #' @param r A number. The length parameter of the correlation function.
 #' @param ssm An SSM object.
 #' @return A number. The concentrated likelihood.
+#' @keywords internal
 concentrated.likelihood <- function(r, ssm){
   # Computes the concentrated likelihood
   covariance.matrix <- compute.covariance(ssm, r)
@@ -63,6 +64,7 @@ concentrated.likelihood <- function(r, ssm){
 #' \code{\link{estimate.GP}}.
 #' @param int The maximum endpoint of the interval of optimization.
 #' @param ... arguments to pass to the optimize call.
+#' @keywords internal
 optimize.by.interval.maximum <- function(int, ...)
   optimize(concentrated.likelihood, interval = c(0, int), ...)
 
@@ -87,6 +89,7 @@ optimize.by.interval.maximum <- function(int, ...)
 #'   function.#'
 #' @return An SSM object that is the same as the input except with
 #'   estimates for \code{r} and \code{sigma} in the appropriate slots.
+#' @keywords internal
 estimate.GP <- function(ssm, type){
   # finds maximum likelihood estimate for scale parameter r using concentrated
   # likelihood function
@@ -142,6 +145,7 @@ estimate.GP <- function(ssm, type){
 #' @param ssm (obsolete) An SSM object. Used for the removed
 #'   \code{"ssm"} correlation function which tried to use the local smoothness
 #'   of the SSM to measure distances.
+#' @keywords internal
 compute.covariance.from.distance <- function(distance, r, type = "exp", ssm){
   if (type == "matern32") return (exp(- distance * sqrt(3) * r) *
                                     (1 + distance * sqrt(3) * r))
@@ -188,10 +192,11 @@ likelihood.plot <- function(ssm, xrange = c(0,1000), grid = 200){
 #' design point. Used in the computation of distance measures based on local
 #' smoothness.
 #' @param indices A vector of integers specifying the two variables by which we
-#'  take the partial derivatives with respect to.
+#'   take the partial derivatives with respect to.
 #' @param ssm An SSM object.
 #' @return A single column vector containing the second partial derivatives with
 #' respect to the requested variables, evaluated at all design points.
+#' @keywords internal
 partial.deriv.ssm <- function(indices, ssm){
   # computes the second derivative of the ssm at all design points with respect
   # to the two indices
@@ -211,6 +216,7 @@ partial.deriv.ssm <- function(indices, ssm){
 #' design points. Used in the compuation of distance measures based on local
 #' smoothness.
 #' @param ssm An SSM object.
+#' @keywords internal
 #' @return A vector of integers containing the smoothness at each design point.
 smoothness.over.design <- function (ssm){
   # computes the smoothness of the ssm at all design points
@@ -234,7 +240,7 @@ smoothness.over.design <- function (ssm){
 #' @param smoothness A numeric vector.
 #' @param smoothnessdesign A numeric vector of the same length as
 #'   \code{smoothness}.
-#'
+#' @keywords internal
 #' @return A number.
 lineij <- function(x, smoothness, smoothnessdesign){
   # input is the two design points we compute the line integral between, the ssm object and the smoothness over a lattice of points defined by smoothnessdesign
@@ -274,7 +280,7 @@ lineij <- function(x, smoothness, smoothnessdesign){
 #' @param ssm An SSM object.
 #' @param line.grid (optional). An integer. Specifies the number of points used
 #'   in the computation of the distance matrix when \code{type = "line"}.
-#'
+#' @keywords internal
 #' @return A matrix.
 new.distance <- function(type = "distance", ssm, line.grid = 100){
   # This computes the 'distance' matrix using whichever type is specified.

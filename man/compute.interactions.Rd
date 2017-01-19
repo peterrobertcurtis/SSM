@@ -22,4 +22,5 @@ identifies the relevant rows of the SSM \code{basis} slot for each
 interaction and sums the term variances. Called by
 \code{\link{update.sensitivity}}.
 }
+\keyword{internal}
 

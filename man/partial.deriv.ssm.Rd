@@ -22,4 +22,5 @@ Computes a second partial derivative of a smooth supersaturated model at a
 design point. Used in the computation of distance measures based on local
 smoothness.
 }
+\keyword{internal}
 

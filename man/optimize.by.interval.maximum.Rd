@@ -15,4 +15,5 @@ optimize.by.interval.maximum(int, ...)
 Wrapper for optimizing \code{concentrated.likelihood}. Used by
 \code{\link{estimate.GP}}.
 }
+\keyword{internal}
 

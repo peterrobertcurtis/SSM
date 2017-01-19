@@ -17,4 +17,5 @@ This function evaluates the Frobenius norm of the Hessian matrix at all
 design points. Used in the compuation of distance measures based on local
 smoothness.
 }
+\keyword{internal}
 

@@ -18,4 +18,5 @@ A number. The concentrated likelihood.
 Computes the concentrated likelihood of the covariance matrix of an SSM
 object, given a length parameter and the SSM Leave-One-Out errors.
 }
+\keyword{internal}
 

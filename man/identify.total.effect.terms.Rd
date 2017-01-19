@@ -20,4 +20,5 @@ A logical vector.  Each term corresponds with the associated row of
 This is used by the sensitivity computation functions to identify which basis
 terms are associated with each total effect.
 }
+\keyword{internal}
 

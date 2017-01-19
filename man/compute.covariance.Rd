@@ -23,4 +23,5 @@ The covariance matrix uses the correlation function specified by the SSM slot
 \code{type}.  \code{"matern32"} uses a Matern 3/2 correlation while
 \code{"exp"} uses a squared exponential.
 }
+\keyword{internal}
 

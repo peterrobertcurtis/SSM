@@ -26,4 +26,5 @@ averaged. This is used in the computation of line integrals of smoothness
 used by a particular distance measure when computing metamodel error
 estimates.
 }
+\keyword{internal}
 

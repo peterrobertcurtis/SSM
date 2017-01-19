@@ -21,4 +21,5 @@ This computes the Total interaction index for a given interaction. The
 relevant term variances are identified and summed and the resulting
 variance normalized and returned.
 }
+\keyword{internal}
 

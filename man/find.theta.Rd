@@ -29,4 +29,5 @@ This function is called by \code{\link{fit.ssm}} to compute the coefficient
 vector that interpolates the data and minimises the smoothness of the
 resulting model.
 }
+\keyword{internal}
 

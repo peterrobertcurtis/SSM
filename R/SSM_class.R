@@ -23,6 +23,9 @@
 #' @name SSM
 NULL
 
+#' @import methods
+NULL
+
 #' An S4 class to represent a smooth supersaturated model
 #'
 #' @slot dimension A number indicating the number of variables in the design.

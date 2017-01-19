@@ -1,4 +1,15 @@
 
+#' Summarise SSM class object
+#'
+#' Printing an SSM will summarise the parameters d, N, and n.  If no model has
+#' been fit then this will be noted, otherwise The smoothness of the SSM will be
+#' shown.  If sensitivity analysis has been performed, the Sobol indices and
+#' Total indices for main effects are displayed and if cross-validation has been
+#' performed the Standardised LOO RMSE is also shown.
+#'
+#' @param SSM An SSM object
+#'
+#' @export
 setMethod("show", "SSM",
           function(object){
             cat("Smooth supersaturated model in d=",

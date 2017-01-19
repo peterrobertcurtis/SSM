@@ -7,7 +7,7 @@
 #' Total indices for main effects are displayed and if cross-validation has been
 #' performed the Standardised LOO RMSE is also shown.
 #'
-#' @param SSM An SSM object
+#' @param object An SSM object
 #'
 #' @export
 setMethod("show", "SSM",

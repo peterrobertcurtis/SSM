@@ -8,7 +8,7 @@
 \S4method{show}{SSM}(object)
 }
 \arguments{
-\item{SSM}{An SSM object}
+\item{object}{An SSM object}
 }
 \description{
 Printing an SSM will summarise the parameters d, N, and n.  If no model has

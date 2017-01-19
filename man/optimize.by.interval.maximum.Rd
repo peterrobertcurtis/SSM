@@ -8,6 +8,8 @@ optimize.by.interval.maximum(int, ...)
 }
 \arguments{
 \item{int}{The maximum endpoint of the interval of optimization.}
+
+\item{...}{arguments to pass to the optimize call.}
 }
 \description{
 Wrapper for optimizing \code{concentrated.likelihood}. Used by

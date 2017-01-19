@@ -62,6 +62,7 @@ concentrated.likelihood <- function(r, ssm){
 #' Wrapper for optimizing \code{concentrated.likelihood}. Used by
 #' \code{\link{estimate.GP}}.
 #' @param int The maximum endpoint of the interval of optimization.
+#' @param ... arguments to pass to the optimize call.
 optimize.by.interval.maximum <- function(int, ...)
   optimize(concentrated.likelihood, interval = c(0, int), ...)
 

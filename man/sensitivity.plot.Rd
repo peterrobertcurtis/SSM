@@ -55,8 +55,8 @@ sensitivity.plot(s, "sobol")
 sensitivity.plot(s, "total")
 # Identifying particular indices is best done using the information held in
 # the SSM object.  The following orders s@total_int_factors so the
-interaction indicated by the top row is the most important.
-ind <- order(s@total_int, descending = TRUE)
+# interaction indicated by the top row is the most important.
+ind <- order(s@total_int, decreasing = TRUE)
 s@total_int_factors[ind, ]
 }
 

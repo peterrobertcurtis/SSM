@@ -125,7 +125,9 @@
 #' # used defined basis sizes
 #'
 #' # A model that is too large to fit
+#' \dontrun{
 #' s <- fit.ssm(X, Y, basis_size=80)
+#' }
 #' # A large model that can be fit but is unstable
 #' s <- fit.ssm(X, Y, basis_size=70)
 #' plot(s)
@@ -144,7 +146,7 @@
 #' # A design of 20 points over [-1, 1]^d
 #' X <- matrix(runif(20, -1, 1), ncol = 2)
 #' Y <- runif(10)
-#' s <- fit.ssm(X, Y)
+#' s <- fit.ssm(X, Y, SA = TRUE)
 #' s
 #' sensitivity.plot(s)
 #' plot(s)

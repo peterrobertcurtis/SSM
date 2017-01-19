@@ -4,10 +4,12 @@
 \alias{plot.SSM}
 \title{Plot smooth supersaturated model main effects}
 \usage{
-\method{plot}{SSM}(ssm, grid = 200, yrange = "full", GP = TRUE, ...)
+\method{plot}{SSM}(x, ..., grid = 200, yrange = "full", GP = TRUE)
 }
 \arguments{
-\item{ssm}{An SSM object.}
+\item{x}{An SSM object.}
+
+\item{...}{(optional) arguments to pass to the \code{plot} function.}
 
 \item{grid}{(optional) A number. This specifies the resolution of the plot,
 \emph{i.e.} how many model evaluations are used to construct the curve.}
@@ -16,8 +18,6 @@
 
 \item{GP}{(optional) Logical. For single variable data, the credible interval
 of the metamodel error estimator will be plotted if TRUE.}
-
-\item{...}{(optional) arguments to pass to the \code{plot} function.}
 }
 \description{
 \code{plot.SSM} is a plot method for SSM objects. It plots the main effects

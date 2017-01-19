@@ -4,15 +4,17 @@
 \alias{predict.SSM}
 \title{Point prediction of smooth supersaturated models.}
 \usage{
-\method{predict}{SSM}(ssm, x, alpha = 0.05)
+\method{predict}{SSM}(object, x, alpha = 0.05, ...)
 }
 \arguments{
-\item{ssm}{An SSM object.}
+\item{object}{An SSM object.}
 
 \item{x}{A \eqn{d} length vector identifying the prediction point.}
 
 \item{alpha}{(optional) A number in \eqn{[0, 1]} for the \eqn{(1 - \alpha)}
 metamodel error estimate credible interval. Set to \code{0.05} by default.}
+
+\item{...}{further arguments passed to or from other methods.}
 }
 \value{
 Either a number if the SSM has no metamodel error estimating Gaussian

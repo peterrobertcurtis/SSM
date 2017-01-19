@@ -2,7 +2,6 @@
 % Please edit documentation in R/SSM_class.R
 \docType{package}
 \name{SSM}
-\alias{SSM}
 \alias{SSM-package}
 \title{SSM: A package for fitting smooth supersaturated models (SSM).}
 \description{

@@ -4,6 +4,8 @@
 #' models, along with functions for fitting SSM to data, computing Sobol indices
 #' for the SSM and estimating metamodel error with a Gaussian process.
 #'
+#' @aliases NULL
+#'
 #' @section SSM functions:
 #' There are three important functions in the package.
 #'

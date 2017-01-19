@@ -16,6 +16,6 @@ relevant slots updated.
 \description{
 This function computes the Sobol indices of the model variables, also known
 as the main effects.  It identifies the relevant rows of the SSM \code{basis}
-slot and sums the term variances. Called by \code{\link{update_sensitivity}}.
+slot and sums the term variances. Called by \code{\link{update.sensitivity}}.
 }
 

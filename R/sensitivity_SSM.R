@@ -81,7 +81,7 @@ identify.main.effect.terms <- function(i, basis)
 #'
 #' This function computes the Sobol indices of the model variables, also known
 #' as the main effects.  It identifies the relevant rows of the SSM \code{basis}
-#' slot and sums the term variances. Called by \code{\link{update_sensitivity}}.
+#' slot and sums the term variances. Called by \code{\link{update.sensitivity}}.
 #'
 #' @param ssm An SSM object.
 #'
@@ -112,7 +112,7 @@ identify.total.effect.terms <- function(i, basis)
 #'
 #' This function computes the Total indices of the model variables.  It
 #' identifies the relevant rows of the SSM \code{basis} slot and sums the term
-#' variances. Called by \code{\link{update_sensitivity}}.
+#' variances. Called by \code{\link{update.sensitivity}}.
 #'
 #' @param ssm An SSM object.
 #'
@@ -135,7 +135,7 @@ compute.total.effects <- function(ssm){
 #' Sobol indices of all interactions (second order and higher) in the model. It
 #' identifies the relevant rows of the SSM \code{basis} slot for each
 #' interaction and sums the term variances. Called by
-#' \code{\link{update_sensitivity}}.
+#' \code{\link{update.sensitivity}}.
 #'
 #' @param ssm An SSM object.
 #'

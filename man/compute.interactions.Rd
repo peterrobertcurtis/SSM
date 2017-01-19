@@ -20,6 +20,6 @@ interactions present in the model.  If \eqn{d < 11} then it also computes the
 Sobol indices of all interactions (second order and higher) in the model. It
 identifies the relevant rows of the SSM \code{basis} slot for each
 interaction and sums the term variances. Called by
-\code{\link{update_sensitivity}}.
+\code{\link{update.sensitivity}}.
 }
 

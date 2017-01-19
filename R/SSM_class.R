@@ -23,7 +23,7 @@
 #' @name SSM
 NULL
 
-#' @import methods
+#' @import methods utils graphics stats
 NULL
 
 #' An S4 class to represent a smooth supersaturated model

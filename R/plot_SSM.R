@@ -170,7 +170,7 @@ predict.SSM <- function (object, x, alpha=0.05, ...){
   if (length(object@r)>0){
     s <- object
     s@design <- rbind(x, object@design)
-    new.dist <- new.distance(s, type = object@distance_type)[1, -1]
+    new.dist <- new.distance(ssm = s, type = object@distance_type)[1, -1]
     if(sum(new.dist == 0) > 0)
       return(list(lower = fit, model = fit, upper = fit))
     new.cov  <- compute.covariance.from.distance(new.dist, object@r, object@type, object)

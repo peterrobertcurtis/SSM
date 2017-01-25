@@ -1,7 +1,7 @@
 Package: SSM
 Type: Package
 Title: Fit and Analyze Smooth Supersaturated Models
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Peter","Curtis", email = "peterrobertcurtis@gmail.com",
                role = c("aut", "cre"))
 Description: Creates an S4 class "SSM" and defines functions for fitting smooth

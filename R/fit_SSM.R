@@ -254,7 +254,7 @@ fit.ssm <- function(design, response, ssm, basis, basis_size, K, P,
   # compute LOO residuals if validation = TRUE and they are not done already
   if (validation){
     if (length(s@residuals) < 1) s <- compute.residuals(s)
-    sdybar <- sqrt(var(mean(response) - response))
+    sdybar <- sqrt(sum((mean(response) - response)^2) / length(response))
     s@LOO_RMSE <- sqrt(sum(s@residuals^2) / s@design_size) /
                   sdybar
   }

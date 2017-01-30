@@ -1,4 +1,8 @@
-# SSM 1.0.
+# SSM 1.0.2
+
+* now exports new.distance (because I need to use it during simulations)
+
+# SSM 1.0.1
 
 * Defines S4 class SSM object
 * Provides plot and predict methods for SSM object

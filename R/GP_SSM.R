@@ -280,7 +280,7 @@ lineij <- function(x, smoothness, smoothnessdesign){
 #' @param ssm An SSM object.
 #' @param line.grid (optional). An integer. Specifies the number of points used
 #'   in the computation of the distance matrix when \code{type = "line"}.
-#' @keywords internal
+#' @export
 #' @return A matrix.
 new.distance <- function(type = "distance", ssm, line.grid = 100){
   # This computes the 'distance' matrix using whichever type is specified.

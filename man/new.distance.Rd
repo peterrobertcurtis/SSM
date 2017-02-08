@@ -42,4 +42,5 @@ Implemented types of distance measure are:
 All measures other than \code{"distance"} are experimental and should be
 used with caution.
 }
+\keyword{internal}
 

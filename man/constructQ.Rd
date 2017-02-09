@@ -12,7 +12,8 @@ constructQ(ssm, indices, type = 1)
 \item{indices}{A vector of integers identifying the effect or interaction of
 interest.  For example, \code{indices = c(1, 2)} indicates the interaction
 between \eqn{x_1} and \eqn{x_2} while \code{indices = 1} indicates the main
-effect of \eqn{x_1}.}
+effect of \eqn{x_1}. If set to zero, the output matrix will define the
+total variance.}
 
 \item{type}{(optional) This is passed to \code{\link{constructH}} and
 determines the method of computing the \eqn{H} matrix.  Must be 1 or 2.

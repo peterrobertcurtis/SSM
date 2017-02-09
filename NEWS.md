@@ -6,6 +6,9 @@
   are used.
 * constructQ uses construct H and constructDelta to compute Q in the y^TQy
   formulation of FANOVA variance.
+* started a vignette to explain permutation tests.
+* created a function (with subroutines) that generates n unique permutations 
+  that do not change a given row of the design matrix.
 
 # SSM 1.0.3
 * added sanity check test that ssm do actually interpolate at design points using   1 and 2 d models.

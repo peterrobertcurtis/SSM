@@ -1,3 +1,9 @@
+# SSM 1.0.5
+* created more efficient functions to generate n valid permutations that do not
+  explicitly compute all feasible permutations beforehand.
+* filled out vignette for sensitivity permutation tests so it is more
+  descriptive and demonstrates analysis of a simple test case.
+
 # SSM 1.0.4
 * created sensitivity_permutations.R which will hold functions for permutation
   tests of FANOVA variances.

@@ -4,7 +4,7 @@
 \alias{createPermutationByCol}
 \title{Create n permutations that do not change the i-th column of a matrix}
 \usage{
-createPermutationByCol(X, i, n, exit = 1000)
+createPermutationByCol(X, i, n, exit = 10 * n)
 }
 \arguments{
 \item{X}{A matrix}

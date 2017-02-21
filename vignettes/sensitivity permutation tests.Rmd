@@ -19,7 +19,7 @@ an SSM to this data, computing Sobol' indices too.
 
 ```{r}
 f <- function(x)
-  2*x[1] + 4 * cos(x[1] * x[2]) + x[2]^3
+  2*x[1] + 4 * cos(x[1] * x[2] + 1) + x[2]^3
 X <- as.matrix(expand.grid(c(-1, 0, 1), c(-1, 0, 1)))
 Y <- apply(X, 1, f)
 s <- fit.ssm(X, Y, SA = TRUE)
@@ -35,7 +35,6 @@ s@total_variance
 s@main_sobol
 # second order interaction
 s@int_sobol
-
 ```
 
 We compute the Q matrices associated with the FANOVA decomposition, with which 
@@ -52,24 +51,27 @@ t(Y) %*% Q2 %*% Y / t(Y) %*% Q %*% Y
 t(Y) %*% Q12 %*% Y / t(Y) %*% Q %*% Y
 ```
 
-We test the null hypotheses that the main effects are present using permutation tests on the appropriate quadratic forms.  We start with the null hypothesis \eqn{H_0:S_1\neq 0}.  Under the null hypothesis the labels for \eqn{x_1} are not exchangable, but those of \eqn{x_2} are.  For the main effect of x1 we 
-only use permutations that only permute x1. There are four of these: (1 2 3 4),
-(3 2 1 4), (3 4 1 2), (1 4 3 2).
+We test the null hypotheses that the main effects are present using permutation tests on the appropriate quadratic forms.  We start with the null hypothesis \eqn{H_0:S_1 \neq 0}.  Under the null hypothesis the labels for \eqn{x_1} are not exchangable, but those of \eqn{x_2} are.  With three levels of \eqn{x_1}, there are six possible permutations for each level, making \eqn{3!^3 = 216} feasible permuations out of \eqn{6! = 720}. We can use \code{generatePermutations} to output \eqn{n} random unique permutations.
 
 ```{r}
-t(Y) %*% Q1 %*% Y / t(Y) %*% Q %*% Y
-t(Y[c(3, 2, 1, 4)]) %*% Q1 %*% Y[c(3, 2, 1, 4)] / t(Y[c(3, 2, 1, 4)]) %*% Q %*% Y[c(3, 2, 1, 4)]
-t(Y[c(3, 4 , 1, 2)]) %*% Q1 %*% Y[c(3, 4 , 1, 2)] / t(Y[c(3, 4 , 1, 2)]) %*% Q %*% Y[c(3, 4 , 1, 2)]
-t(Y[c(1, 4, 3, 2)]) %*% Q1 %*% Y[c(1, 4, 3, 2)] / t(Y[c(1, 4, 3, 2)]) %*% Q %*% Y[c(1, 4, 3, 2)]
+p <- generatePermutations(216, X, 1)
 ```
 
 The null hypothesis is that the true value of S1 is zero.  To compute the power we simulate using responses where S1 is non-zero.  For example
 ```{r}
-f <- function(x) 1 + x[2] + x[1]*x[2] + x[1]
-simY <- apply(X, 1, f)
-t(simY) %*% Q1 %*% simY / t(simY) %*% Q %*% simY
-t(simY[c(2, 1, 3, 4)]) %*% Q1 %*% simY[c(2, 1, 3, 4)]/ t(simY[c(2, 1, 3, 4)]) %*% Q %*% simY[c(2, 1, 3, 4)]
-t(simY[c(1, 2, 4, 3)]) %*% Q2 %*% simY[c(1, 2, 4, 3)]/ t(simY[c(1, 2, 4, 3)]) %*% Q %*% simY[c(1, 2, 4, 3)]
-t(simY[c(2, 1, 4, 3)]) %*% Q12 %*% simY[c(2, 1, 4, 3)] / t(simY[c(2, 1, 4, 3)]) %*% Q %*% simY[c(2, 1, 4, 3)]
+results1  <- sapply(p, yQy, y = Y, Qi = Q1, Q = Q)
+p2 <- generatePermutations(216, X, 2)
+results2  <- sapply(p2, yQy, y = Y, Qi = Q2, Q = Q)
+boxplot(results1)
+boxplot(results2)
 ```
 
+In this example we cannot test the interaction between \eqn{x_1} and \eqn{x_2} since this would mean we cannot permute any points.  Note that if we used the null hypothesis \eqn{H_0: S_{12} = 0} then we can test this null hypothesis by taking all permutations of points. Since there could be too many we instead use a Monte Carlo method to sample the distribution using
+\code{createPermutationByCol}.
+
+```{r}
+p <- createPermutationByCol(X, 1, 500)
+results12  <- sapply(p, yQy, y = Y, Qi = Q12, Q = Q)
+boxplot(results12)
+```
+Since the test statistic is 0.32 there is not enough evidence to reject the null hypothesis, although note that this is a power problem.  With only one permutation (the identity) defining the distribution of the any alternative hypothesis we will always reject a true alternative hypothesis.

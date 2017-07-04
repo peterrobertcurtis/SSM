@@ -1,29 +1,4 @@
-# SSM 1.0.5
-* created more efficient functions to generate n valid permutations that do not
-  explicitly compute all feasible permutations beforehand.
-* filled out vignette for sensitivity permutation tests so it is more
-  descriptive and demonstrates analysis of a simple test case.
-
-# SSM 1.0.4
-* created sensitivity_permutations.R which will hold functions for permutation
-  tests of FANOVA variances.
-* constructH computes the H matrix used in the theta = Hy formulation.
-* constructDelta computes the squared basis norms assuming Legendre polynomials
-  are used.
-* constructQ uses construct H and constructDelta to compute Q in the y^TQy
-  formulation of FANOVA variance.
-* started a vignette to explain permutation tests.
-* created a function (with subroutines) that generates n unique permutations 
-  that do not change a given row of the design matrix.
-
-# SSM 1.0.3
-* added sanity check test that ssm do actually interpolate at design points using   1 and 2 d models.
-
-# SSM 1.0.2
-
-* now exports new.distance (because I need to use it during simulations)
-
-# SSM 1.0.1
+# SSM 1.0.
 
 * Defines S4 class SSM object
 * Provides plot and predict methods for SSM object
